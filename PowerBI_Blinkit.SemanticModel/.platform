@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "PowerBI_Blinkit"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f9b64bbd-78e9-41dd-b199-c1b1bee12424"
+  }
+}

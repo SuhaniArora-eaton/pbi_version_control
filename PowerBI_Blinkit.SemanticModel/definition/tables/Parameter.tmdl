@@ -1,0 +1,50 @@
+table Parameter
+	lineageTag: a2e110ce-14c1-4b67-9418-66e8e3f66973
+
+	column Parameter
+		lineageTag: 9f9bdf6f-ba9c-4ede-9ae3-75754cb219c4
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: db5f91f6-6b4b-4c7d-8d63-f92c0af77e24
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: c26e20cc-8c4e-4746-b7a7-5f5c7828f469
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parameter = calculated
+		mode: import
+		source =
+				{
+				    ("Average Rating", NAMEOF('BlinkIT Grocery Data'[Average Rating]), 0),
+				    ("No of Items", NAMEOF('BlinkIT Grocery Data'[No of Items]), 1),
+				    ("Total Sales", NAMEOF('BlinkIT Grocery Data'[Total Sales]), 2),
+				    ("Average Sales", NAMEOF('BlinkIT Grocery Data'[Average Sales]), 3)
+				}
+
+	annotation PBI_Id = 701614a651544b09b66e2b1f6d0c9466
+
